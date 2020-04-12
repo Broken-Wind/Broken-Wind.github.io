@@ -17,8 +17,7 @@ document.querySelector('#host-game').onclick = function () {
     let host = new Peer({key: 'lwjd5qra8257b9'});
     host.on('open', function(id) {
         var gameUrl = location.protocol + '//' + location.host + location.pathname + '?host-id=' + id;
-        document.querySelector('#game-url-container').innerHTML = 'Your game URL: <input id="game-url" value="' + gameUrl + '" />';
-        copyGameUrl();
+        copyGameUrl(gameUrl);
         window.history.pushState({},"", gameUrl);
     });
     host.on('connection', function(peer) {
@@ -53,18 +52,16 @@ function joinGame(hostId, playerName = 'Guest') {
     });
 }
 
-function copyGameUrl() {
-  /* Get the text field */
-  var copyText = document.getElementById('game-url');
-
-  /* Select the text field */
+function copyGameUrl(gameUrl) {
+  var copyText = document.createElement("input");
+  copyText.type = "text";
+  copyText.value = gameUrl
+  copyText.style.display = 'none';
+  document.body.appendChild(copyText);
   copyText.select();
   copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-
-  /* Copy the text inside the text field */
   document.execCommand("copy");
+  document.querySelector('#game-url-container').innerHTML = 'Your game URL has been copied to the clipboard. Share it with your friends! ' + gameUrl;
 
-  /* Alert the copied text */
-  alert("Copied the text: " + copyText.value);
 }
 
