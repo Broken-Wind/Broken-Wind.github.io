@@ -35,9 +35,23 @@
           <input type="text" placeholder="Enter your name" class="form-control" id="player-name">
           <button class="btn btn-primary" type="button" id="submit-name">Submit</button>
         </div>
-
+        <div id="scores-container" class="row" style="display:none;">
+          <div class="col text-center" id="blue-score-container">
+            <h5>
+              <span class="text-primary">
+                Blue Score:
+                <span id="blue-score">0</span>
+              </span>
+              &nbsp;|&nbsp;
+              <span class="text-danger">
+                Red Score:
+                <span id="red-score">0</span>
+              </span>
+            </h5>
+          </div>
+        </div>
         <div id="game-container" class="row">
-          <div class="col-lg-8" id="game">
+          <div class="col" id="game">
             <div id="select-spymasters" style="display:none;">
               <div class="form-group">
                 <label for="select-red-spymaster">Select Red Spymaster</label>
@@ -50,10 +64,11 @@
               <button type="button" class="btn btn-primary" id="start-game">Start Game</button>
             </div>
           </div>
-          <div class="col-md-4" style="display:none;" id="player-list-container">
-            <h2>Players:</h2>
-            <ul id="player-list"></ul>
-          </div>
+        </div>
+
+        <div style="display:none;" id="player-list-container">
+          <h2>Players:</h2>
+          <ul id="player-list"></ul>
         </div>
 
 

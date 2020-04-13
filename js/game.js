@@ -6,7 +6,9 @@ var currentPlayer = {
 // stages: players_join, in_progress, finished
 var gameState = {
   stage: 'players_join',
-  players: []
+  players: [],
+  redScore: 0,
+  blueScore: 0
 };
 var connections = [];
 
@@ -145,6 +147,12 @@ function updateFromFinished(gameState) {
 function updateFromInProgress(gameState) {
   checkIfSpymaster(gameState);
   displayCards(gameState);
+  updateScores(gameState);
+}
+
+function updateScores(gameState) {
+  document.getElementById('red-score').innerHTML = gameState.redScore;
+  document.getElementById('blue-score').innerHTML = gameState.blueScore;
 }
 
 function checkIfSpymaster(gameState) {
@@ -261,9 +269,14 @@ function startGame() {
   hideSpymasterSelect();
   identifySpymasters();
   setStartingTeam();
+  displayScores();
   generateCards();
   setInProgress();
   broadcastGameState();
+}
+
+function displayScores() {
+  document.getElementById('scores-container').style.display = 'block';
 }
 
 function hideSpymasterSelect() {
