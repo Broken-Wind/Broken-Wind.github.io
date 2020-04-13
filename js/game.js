@@ -167,15 +167,15 @@ function displayCards(gameState) {
   for (rowNum=1; rowNum <=5; rowNum++) {
     let row = document.createElement('div');
     row.classList.add('row');
-    row.style.height = '100px';
     row.id = 'card-row-' + rowNum;
     gameDiv.appendChild(row);
     for (colNum=1; colNum <=5; colNum++) {
       let word = gameState.cards[(rowNum-1)*5 + colNum - 1];
       let col = document.createElement('div');
-      col.classList.add('col');
+      col.classList.add('col-md-2');
       col.classList.add('text-center');
-      col.classList.add('h-100');
+      col.classList.add('p-4');
+      col.classList.add('m-2');
       col.id = word.id;
       if (currentPlayer.isSpymaster) {
         col.style.opacity = '.3';

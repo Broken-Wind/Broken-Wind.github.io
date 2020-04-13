@@ -50,23 +50,22 @@
             </h5>
           </div>
         </div>
-        <div id="game-container" class="row">
-          <div class="col" id="game">
-            <div id="select-spymasters" style="display:none;">
-              <div class="form-group">
-                <label for="select-red-spymaster">Select Red Spymaster</label>
-                <select class="form-control" name="select-red-spymaster" id="select-red-spymaster"></select>
-              </div>
-              <div class="form-group">
-                <label for="select-red-spymaster">Select Blue Spymaster</label>
-                <select class="form-control" name="select-blue-spymaster" id="select-blue-spymaster"></select>
-              </div>
-              <button type="button" class="btn btn-primary" id="start-game">Start Game</button>
-            </div>
+
+        <div id="select-spymasters" style="display:none;">
+          <div class="form-group">
+            <label for="select-red-spymaster">Select Red Spymaster</label>
+            <select class="form-control" name="select-red-spymaster" id="select-red-spymaster"></select>
           </div>
+          <div class="form-group">
+            <label for="select-red-spymaster">Select Blue Spymaster</label>
+            <select class="form-control" name="select-blue-spymaster" id="select-blue-spymaster"></select>
+          </div>
+          <button type="button" class="btn btn-primary" id="start-game">Start Game</button>
+        </div>
+        <div id="game" class="container">
         </div>
 
-        <div style="display:none;" id="player-list-container">
+        <div style="display:none;" class="container" id="player-list-container">
           <h2>Players:</h2>
           <ul id="player-list"></ul>
         </div>
@@ -76,7 +75,6 @@
         <script src="js/vendor/modernizr-3.8.0.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/game.js"></script>
-
       </div>
     </main>
 
