@@ -158,34 +158,34 @@ function displayCards(gameState) {
   gameDiv.innerHTML = '';
   for (rowNum=1; rowNum <=5; rowNum++) {
     let row = document.createElement('div');
-    row.classList.add('card-group');
-    row.classList.add('h-100');
+    row.classList.add('row');
+    row.style.height = '100px';
     row.id = 'card-row-' + rowNum;
     gameDiv.appendChild(row);
     for (colNum=1; colNum <=5; colNum++) {
       let word = gameState.cards[(rowNum-1)*5 + colNum - 1];
-      let card = document.createElement('div');
-      card.classList.add('card');
-      card.classList.add('card-block');
-      card.classList.add('text-center');
-      card.id = word.id;
+      let col = document.createElement('div');
+      col.classList.add('col');
+      col.classList.add('text-center');
+      col.classList.add('h-100');
+      col.id = word.id;
       if (currentPlayer.isSpymaster) {
-        card.style.opacity = '.3';
-        card.classList.add(word.identity)
-        card.onclick = function () {
+        col.style.opacity = '.3';
+        col.classList.add(word.identity)
+        col.onclick = function () {
           handleCardClick(this);
         }
-        addCardBackgroundClass(card, word.identity);
+        addCardBackgroundClass(col, word.identity);
       }
       if (word.isRevealed || gameState.stage === 'finished') {
-        card.style.opacity = '1';
-        card.classList.add(word.identity)
-        addCardBackgroundClass(card, word.identity);
+        col.style.opacity = '1';
+        col.classList.add(word.identity)
+        addCardBackgroundClass(col, word.identity);
       }
-      row.appendChild(card);
+      row.appendChild(col);
       let h5 = document.createElement('h5');
       h5.innerHTML = word.word;
-      card.appendChild(h5);
+      col.appendChild(h5);
     }
   }
 }
