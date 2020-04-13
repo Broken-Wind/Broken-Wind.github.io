@@ -27,24 +27,40 @@
     <!-- Begin page content -->
     <main role="main" class="flex-shrink-0">
       <div class="container">
-        <h1 class="mt-5">Game Night</h1>
-        <p class="lead">Host a game, or join your friends!</p>
+        <h1 class="mt-5">Host Game</h1>
+        <p class="lead">Enter your name to get started!</p>
+        <div id="game-url-container"></div>
 
-        <form action="game.html" method="get">
-          <div class="input-group input-group-lg mb-3">
-            <input type="text" class="form-control" name="host-id" id="host-id" placeholder="Enter Host ID" aria-label="Host ID" aria-describedby="join-game">
-            <div class="input-group-append">
-              <button type="submit" name="join-game" value="1" id="join-game" class="btn btn-primary" role="button">Join Existing Game</button>
+        <div id="player-name-container">
+          <input type="text" placeholder="Enter your name" class="form-control" id="player-name">
+          <button class="btn btn-primary" type="button" id="submit-name">Submit</button>
+        </div>
+
+        <div id="game-container" class="row">
+          <div class="col-lg-8" id="game">
+            <div id="select-spymasters" style="display:none;">
+              <div class="form-group">
+                <label for="select-red-spymaster">Select Red Spymaster</label>
+                <select class="form-control" name="select-red-spymaster" id="select-red-spymaster"></select>
+              </div>
+              <div class="form-group">
+                <label for="select-red-spymaster">Select Blue Spymaster</label>
+                <select class="form-control" name="select-blue-spymaster" id="select-blue-spymaster"></select>
+              </div>
+              <button type="button" class="btn btn-primary" id="start-game">Start Game</button>
             </div>
           </div>
-
-          <button type="submit" name="host-game" value="1" id="host-game" class="btn btn-success btn-lg btn-block" role="button">Host a game!</button>
-        </form>
+          <div class="col-md-4" style="display:none;" id="player-list-container">
+            <h2>Players:</h2>
+            <ul id="player-list"></ul>
+          </div>
+        </div>
 
 
         <script src="https://cdn.jsdelivr.net/npm/peerjs@0.3.20/dist/peer.min.js"></script>
         <script src="js/vendor/modernizr-3.8.0.min.js"></script>
         <script src="js/plugins.js"></script>
+        <script src="js/game.js"></script>
 
       </div>
     </main>
