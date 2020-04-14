@@ -39,7 +39,7 @@
         <script>
           document.getElementById('generate-insult').onclick = function () {
             console.log('hit');
-            fetch('http://cors.io/?https://evilinsult.com/generate_insult.php?lang=en&type=json').then(function (response) {
+            fetch('https://cors.io/?https://evilinsult.com/generate_insult.php?lang=en&type=json').then(function (response) {
               // The API call was successful!
               console.log('success!', response);
             }).catch(function (err) {
