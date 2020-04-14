@@ -38,7 +38,6 @@
         <script src="js/plugins.js"></script>
         <script>
           document.getElementById('generate-insult').onclick = function () {
-            console.log('hit');
             fetch('https://cors-anywhere.herokuapp.com/https://evilinsult.com/generate_insult.php?lang=en&type=json').then(function (response) {
               response.json().then(data => {
                 window.speechSynthesis.speak(new SpeechSynthesisUtterance(data.insult));
