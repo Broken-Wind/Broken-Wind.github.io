@@ -1,0 +1,58 @@
+
+
+<!doctype html>
+<html class="no-js" lang="">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <meta name="theme-color" content="#fafafa">
+  </head>
+  <body class="d-flex flex-column h-100">
+    <!--[if IE]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- Content -->
+
+    <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
+      <div class="container mt-5">
+
+        <a id="generate-insult" class="btn btn-primary btn-lg btn-block" href="#">Insult me, Cap'n!</a>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/peerjs@0.3.20/dist/peer.min.js"></script>
+        <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script>
+          document.getElementById('generate-insult').onclick = function () {
+            console.log('hit');
+            fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json').then(function (response) {
+              // The API call was successful!
+              console.log('success!', response);
+            }).catch(function (err) {
+              // There was an error
+              console.warn('Something went wrong.', err);
+            });
+
+          }
+          </script>
+
+      </div>
+    </main>
+
+  </body>
+
+</html>
